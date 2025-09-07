@@ -1,0 +1,497 @@
+/* RESPONSIVE DESIGN */
+
+/* Mobile Navigation */
+@media (max-width: 768px) {
+    #desktop-nav {
+        display: none;
+    }
+    
+    #hamburger-nav {
+        display: flex;
+    }
+    
+    .hero {
+        height: 100vh;
+        margin-top: 0;
+    }
+    
+    .hero-content h1 {
+        font-size: 2.5rem;
+        line-height: 2.5rem;
+    }
+    
+    .hero-content h3 {
+        font-size: 1.4rem;
+    }
+    
+    .hero-content h4 {
+        font-size: 1.2rem;
+    }
+    
+    .container {
+        max-width: 95%;
+    }
+}
+
+@media (max-width: 600px) {
+    .profile-btn span {
+        display: none;
+    }
+    
+    .hero-content h1 {
+        font-size: 2rem;
+        line-height: 2rem;
+    }
+    
+    .hero-content h3 {
+        font-size: 1.2rem;
+    }
+    
+    .hero-content h4 {
+        font-size: 1rem;
+    }
+}
+
+/* GPA Calculator Responsive */
+@media (max-width: 768px) {
+    .calculator-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .section {
+        margin: 20px;
+        max-width: none;
+    }
+    
+    .content {
+        padding: 20px;
+    }
+    
+    .header {
+        padding: 20px;
+    }
+    
+    .header h1 {
+        font-size: 24px;
+    }
+    
+    .course-item {
+        flex-direction: column;
+        gap: 10px;
+        align-items: stretch;
+    }
+    
+    .course-input,
+    .grade-select,
+    .credit-select {
+        width: 100%;
+    }
+    
+    .remove-btn {
+        align-self: center;
+        margin-top: 10px;
+    }
+    
+    .action-buttons {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 600px) {
+    .section {
+        margin: 10px;
+        border-radius: 8px;
+    }
+    
+    .content {
+        padding: 15px;
+    }
+    
+    .header {
+        padding: 15px;
+    }
+    
+    .header h1 {
+        font-size: 20px;
+    }
+    
+    .gpa-value {
+        font-size: 40px;
+    }
+    
+    .gpa-scale {
+        font-size: 20px;
+    }
+}
+
+/* Quiz Cards Responsive */
+@media (max-width: 1200px) {
+    .quiz-card {
+        width: 200px;
+        height: 200px;
+    }
+}
+
+@media (max-width: 900px) {
+    .quiz-card {
+        width: 250px;
+        height: 220px;
+    }
+    
+    .quiz-grid {
+        gap: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .quiz-card {
+        width: 280px;
+        height: 240px;
+    }
+    
+    .quiz-title {
+        font-size: 28px;
+    }
+    
+    .quiz-section {
+        padding: 30px 15px;
+    }
+}
+
+@media (max-width: 600px) {
+    .quiz-card {
+        width: 100%;
+        max-width: 320px;
+        height: 260px;
+    }
+    
+    .quiz-title {
+        font-size: 24px;
+    }
+    
+    .quiz-grid {
+        gap: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .quiz-card {
+        height: 240px;
+    }
+    
+    .quiz-title {
+        font-size: 20px;
+    }
+}
+
+
+/* Notes Section Responsive */
+@media (max-width: 768px) {
+    .notes-header {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 15px;
+    }
+    
+    .notes-search {
+        max-width: 100%;
+    }
+    
+    .notes-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .notes-section {
+        padding: 30px 15px;
+    }
+    
+    .notes-title {
+        font-size: 28px;
+    }
+}
+
+@media (max-width: 600px) {
+    .notes-title {
+        font-size: 24px;
+    }
+    
+    .notes-subtitle {
+        font-size: 16px;
+    }
+    
+    .notes-modal-content {
+        width: 95%;
+        padding: 20px;
+    }
+    
+    .notes-form-actions {
+        flex-direction: column;
+    }
+    
+    .notes-form-cancel,
+    .notes-form-submit {
+        width: 100%;
+    }
+}
+
+/* Quote Section Responsive */
+@media (max-width: 768px) {
+    .quote-section {
+        margin: 20px;
+        padding: 30px 20px;
+    }
+    
+    .quote-title {
+        font-size: 24px;
+    }
+    
+    .quote-text {
+        font-size: 18px;
+    }
+    
+    .quote-author {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 600px) {
+    .quote-section {
+        margin: 15px;
+        padding: 25px 15px;
+    }
+    
+    .quote-title {
+        font-size: 20px;
+    }
+    
+    .quote-text {
+        font-size: 16px;
+    }
+    
+    .quote-author {
+        font-size: 14px;
+    }
+}
+
+/* Calendar Section Responsive */
+@media (max-width: 768px) {
+    .calendar-main-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .calendar-section {
+        padding: 30px 15px;
+    }
+    
+    .calendar-section-title {
+        font-size: 28px;
+    }
+    
+    .calendar-section-subtitle {
+        font-size: 16px;
+    }
+    
+    .calendar-day {
+        min-height: 80px;
+        padding: 8px;
+    }
+    
+    .day-number {
+        font-size: 14px;
+    }
+    
+    .todo-item-preview {
+        font-size: 0.7rem;
+        padding: 1px 4px;
+    }
+    
+    .todo-sidebar {
+        padding: 20px;
+    }
+    
+    .todo-date {
+        font-size: 1rem;
+    }
+    
+    .modal-content {
+        width: 95%;
+        padding: 20px;
+    }
+    
+    .time-inputs {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+}
+
+@media (max-width: 600px) {
+    .calendar-section-title {
+        font-size: 24px;
+    }
+    
+    .calendar-section-subtitle {
+        font-size: 14px;
+    }
+    
+    .calendar-header-nav {
+        padding: 15px;
+    }
+    
+    .calendar-title {
+        font-size: 1.2rem;
+    }
+    
+    .calendar-nav-btn {
+        padding: 8px;
+        font-size: 14px;
+    }
+    
+    .weekday {
+        padding: 10px 5px;
+        font-size: 14px;
+    }
+    
+    .calendar-day {
+        min-height: 70px;
+        padding: 5px;
+    }
+    
+    .day-number {
+        font-size: 12px;
+    }
+    
+    .todo-item-preview {
+        font-size: 0.65rem;
+        padding: 1px 3px;
+    }
+    
+    .todo-sidebar {
+        padding: 15px;
+    }
+    
+    .todo-item {
+        padding: 10px;
+    }
+    
+    .modal-content {
+        padding: 15px;
+    }
+    
+    .modal-header {
+        font-size: 1.1rem;
+    }
+    
+    .form-input {
+        padding: 10px;
+        font-size: 14px;
+    }
+    
+    .btn {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+}
+
+/* Timetable Section Responsive */
+@media (max-width: 768px) {
+    .timetable-section {
+        padding: 30px 15px;
+    }
+    
+    .timetable-section-title {
+        font-size: 28px;
+    }
+    
+    .timetable-section-subtitle {
+        font-size: 16px;
+    }
+    
+    .timetable-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .day-card {
+        padding: 20px;
+    }
+    
+    .day-name {
+        font-size: 1.1rem;
+    }
+    
+    .subject-item {
+        padding: 12px;
+    }
+    
+    .subject-details h4 {
+        font-size: 16px;
+    }
+    
+    .subject-time {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .timetable-section-title {
+        font-size: 24px;
+    }
+    
+    .timetable-section-subtitle {
+        font-size: 14px;
+    }
+    
+    .day-card {
+        padding: 15px;
+    }
+    
+    .day-header {
+        margin-bottom: 15px;
+    }
+    
+    .day-name {
+        font-size: 1rem;
+    }
+    
+    .add-subject-btn {
+        padding: 8px;
+        font-size: 14px;
+    }
+    
+    .subject-list {
+        min-height: 120px;
+    }
+    
+    .subject-item {
+        padding: 10px;
+        margin-bottom: 8px;
+    }
+    
+    .subject-info {
+        gap: 10px;
+    }
+    
+    .subject-icon {
+        padding: 8px;
+        font-size: 14px;
+    }
+    
+    .subject-details h4 {
+        font-size: 14px;
+    }
+    
+    .subject-time {
+        font-size: 0.75rem;
+    }
+    
+    .empty-state {
+        padding: 30px 20px;
+    }
+    
+    .empty-state-icon {
+        font-size: 2rem;
+    }
+}

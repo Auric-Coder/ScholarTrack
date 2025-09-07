@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ScholarTrack</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="mediaqueries.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+  <body>
+
+
+
+<!-- =====NAVBAR=====  -->
+<nav id="desktop-nav">
+    <div class="logo">
+        <img src="./images/logo1.png" alt="logo image">
+    </div>
+    <div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#gpa">GPA Calculator</a></li>
+            <li><a href="#quiz">Study Flashcards</a></li>
+            <li><a href="#calendar">Calendar</a></li>
+            <li><a href="#timetable">Timetable</a></li>
+            <li><a href="#notes">Notes</a></li>
+        </ul>
+        <!-- Auth Buttons -->
+        <div class="auth-buttons">
+            <button class="login-btn" onclick="window.location.href='login.html'">Login</button>
+            <button class="signup-btn" onclick="window.location.href='login.html'">Sign Up</button>
+        </div>
+        <!-- Profile Dropdown -->
+        <div class="profile-container">
+            <button class="profile-btn">
+                    <div class="avatar">SS</div>
+                    <span>Sakshi Sinha</span>
+                    <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="dropdown-content">
+                <a href="#profile" class="dropdown-item">
+                    <i class="fas fa-user-circle"></i>
+                        <span>My Profile</span>
+                </a>
+                <a href="#settings" class="dropdown-item">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+                <a href="#switch_account" class="dropdown-item">
+                    <i class="fas fa-sync-alt"></i>
+                    <span>Switch Account</span>
+                </a>
+                <a href="#log_out" class="dropdown-item">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Log Out</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+
+<!-- =====HAMBURGER===== -->
+
+
+<nav id="hamburger-nav">
+    <div class="logo">ScholarTrack</div>
+    <div class="hamburger-menu">
+        <div class="hamburger-icon" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="menu-links">
+            <li><a href="#home" onclick="toggleMenu()">Home</a></li>
+            <li><a href="#gpa" onclick="toggleMenu()">GPA Calculator</a></li>
+            <li><a href="#calendar" onclick="toggleMenu()">Calendar</a></li>
+            <li><a href="#quiz" onclick="toggleMenu()">Study Flashcards</a></li>
+            <li><a href="#timetable" onclick="toggleMenu()">Timetable</a></li>
+            <li><a href="#notes" onclick="toggleMenu()">Notes</a></li>
+            <div class="mobile-auth-buttons">
+                <button class="login-btn" onclick="window.location.href='login.html'">Login</button>
+                <button class="signup-btn" onclick="window.location.href='login.html'">Sign Up</button>
+            </div>
+        </div>
+    </div>
+</nav>
+<!-- hero image section -->
+<section class="hero" id="home">
+    <div class="hero-content flex container">
+        <div>
+            <h3>All Your Study Tools at One Place.</h3>
+            <h1>Level Up <br>Your Learning</h1>
+            <h4>Your Next A+ Awaits</h4>
+            <p class="hero-description">
+                ScholarTrack is your comprehensive academic companion that brings together all the tools you need to excel in your studies. 
+                From calculating your GPA and organizing your schedule to interactive flashcards and motivational quotes, 
+                we've got everything covered to help you achieve academic success.
+            </p>
+            <div class="hero-features">
+                <div class="feature-item">
+                    <i class="fas fa-calculator"></i>
+                    <span>GPA Calculator</span>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span>Smart Calendar</span>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-brain"></i>
+                    <span>Study Flashcards</span>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-sticky-note"></i>
+                    <span>Digital Notes</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- =====MOTIVATIONAL QUOTE===== -->
+<section class="quote-section" id="motivation">
+    <div class="quote-container">
+        <div class="quote-header">
+            <h1 class="quote-title"><i class="fas fa-quote-left"></i> Daily Motivation</h1>
+            <p class="quote-subtitle">Get inspired with a new quote every time you visit this page</p>
+        </div>
+            
+        <div class="quote-content">
+            <div class="quote-icon">
+                <i class="fas fa-quote-left"></i>
+            </div>
+            <p class="quote-text" id="quote-text">The only way to do great work is to love what you do.</p>
+            <p class="quote-author" id="quote-author">- Steve Jobs</p>
+        </div>
+            
+        <div class="quote-footer">
+            <p>Refresh the page to get a new motivational quote!</p>
+        </div>
+    </div>
+</section>
+
+<!-- =====GPA Calculator===== -->
+
+
+<div class="container section" id="gpa">
+        <div class="header">
+            <h1><i class="fas fa-calculator"></i> GPA Calculator</h1>
+            <p>Calculate your Grade Point Average easily with this interactive calculator</p>
+        </div>
+        
+        <div class="content">
+            <div class="calculator-container">
+                <div class="courses">
+                    <h2 class="section-title">Your Courses <span class="course-count" id="course-count">(1 course)</span></h2>
+                    <div id="courses-container">
+                        <div class="course-item">
+                            <input type="text" class="course-input" placeholder="Course name">
+                            <select class="grade-select">
+                                <option value="4">A (4.0)</option>
+                                <option value="3.7">A- (3.7)</option>
+                                <option value="3.3">B+ (3.3)</option>
+                                <option value="3">B (3.0)</option>
+                                <option value="2.7">B- (2.7)</option>
+                                <option value="2.3">C+ (2.3)</option>
+                                <option value="2">C (2.0)</option>
+                                <option value="1.7">C- (1.7)</option>
+                                <option value="1.3">D+ (1.3)</option>
+                                <option value="1">D (1.0)</option>
+                                <option value="0">F (0.0)</option>
+                            </select>
+                            <select class="credit-select">
+                                <option value="1">1 credit</option>
+                                <option value="2">2 credits</option>
+                                <option value="3" selected>3 credits</option>
+                                <option value="4">4 credits</option>
+                                <option value="5">5 credits</option>
+                            </select>
+                            <button class="remove-btn" disabled><i class="fas fa-lock"></i></button>
+                        </div>
+                    </div>
+                    
+                    <button id="add-course" class="add-course">
+                        <i class="fas fa-plus"></i> Add Another Course
+                    </button>
+                </div>
+                
+                <div class="summary">
+                    <h2 class="section-title">GPA Summary</h2>
+                    <div class="gpa-result">
+                        <div class="gpa-value" id="gpa-value">4.0</div>
+                        <div class="gpa-scale">on a 4.0 scale</div>
+                        <div class="gpa-message" id="gpa-message">Excellent! Keep up the good work!</div>
+                    </div>
+                    
+                    <div class="action-buttons">
+                        <button id="calculate" class="action-btn calculate-btn">
+                            <i class="fas fa-calculator"></i> Calculate GPA
+                        </button>
+                        <button id="reset" class="action-btn reset-btn">
+                            <i class="fas fa-redo"></i> Reset
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="grade-scale">
+                <h2 class="section-title">Grading Scale</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Grade</th>
+                            <th>Points</th>
+                            <th>Percentage Range</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>A</td>
+                            <td>4.0</td>
+                            <td>93-100%</td>
+                        </tr>
+                        <tr>
+                            <td>A-</td>
+                            <td>3.7</td>
+                            <td>90-92%</td>
+                        </tr>
+                        <tr>
+                            <td>B+</td>
+                            <td>3.3</td>
+                            <td>87-89%</td>
+                        </tr>
+                        <tr>
+                            <td>B</td>
+                            <td>3.0</td>
+                            <td>83-86%</td>
+                        </tr>
+                        <tr>
+                            <td>B-</td>
+                            <td>2.7</td>
+                            <td>80-82%</td>
+                        </tr>
+                        <tr>
+                            <td>C+</td>
+                            <td>2.3</td>
+                            <td>77-79%</td>
+                        </tr>
+                        <tr>
+                            <td>C</td>
+                            <td>2.0</td>
+                            <td>73-76%</td>
+                        </tr>
+                        <tr>
+                            <td>C-</td>
+                            <td>1.7</td>
+                            <td>70-72%</td>
+                        </tr>
+                        <tr>
+                            <td>D+</td>
+                            <td>1.3</td>
+                            <td>67-69%</td>
+                        </tr>
+                        <tr>
+                            <td>D</td>
+                            <td>1.0</td>
+                            <td>63-66%</td>
+                        </tr>
+                        <tr>
+                            <td>F</td>
+                            <td>0.0</td>
+                            <td>0-62%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="instructions">
+                <h2 class="section-title">How to Use</h2>
+                <ul>
+                    <li>Enter your course names, select grades and credit hours</li>
+                    <li>Click "Add Another Course" to add more courses</li>
+                    <li>Click "Calculate GPA" to see your GPA result</li>
+                    <li>Use "Reset" to clear all fields and start over</li>
+                </ul>
+                
+                <div class="highlight">
+                    <strong>Note:</strong> This calculator uses the standard 4.0 scale. Your institution may use a different grading system.
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+<!-- FLASHCARD/ QUIZ -->
+
+
+<section class="quiz-section" id="quiz">
+        <h2 class="quiz-title">Study Flashcards</h2>
+        
+        <div class="quiz-container">
+            <div class="quiz-grid">
+                <!-- Row 1 -->
+                <div class="quiz-card">
+                    <div class="quiz-card-inner">
+                        <div class="quiz-card-front">
+                            <div class="quiz-topic">Topic: Mathematics</div>
+                            <div class="quiz-question">What is the value of π (pi) to two decimal places?</div>
+                        </div>
+                        <div class="quiz-card-back">
+                            <div class="quiz-topic">Topic: Mathematics</div>
+                            <div class="quiz-answer">3.14</div>
+                            <div class="quiz-mode"><span class="quiz-easy">Easy ⭐</span></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="quiz-card">
+                    <div class="quiz-card-inner">
+                        <div class="quiz-card-front">
+                            <div class="quiz-topic">Topic: Science</div>
+                            <div class="quiz-question">What is the chemical symbol for gold?</div>
+                        </div>
+                        <div class="quiz-card-back">
+                            <div class="quiz-topic">Topic: Science</div>
+                            <div class="quiz-answer">Au</div>
+                            <div class="quiz-mode"><span class="quiz-easy">Easy ⭐</span></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="quiz-card">
+                    <div class="quiz-card-inner">
+                        <div class="quiz-card-front">
+                            <div class="quiz-topic">Topic: History</div>
+                            <div class="quiz-question">In what year did World War II end?</div>
+                        </div>
+                        <div class="quiz-card-back">
+                            <div class="quiz-topic">Topic: History</div>
+                            <div class="quiz-answer">1945</div>
+                            <div class="quiz-mode"><span class="quiz-easy">Easy ⭐</span></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="quiz-card">
+                    <div class="quiz-card-inner">
+                        <div class="quiz-card-front">
+                            <div class="quiz-topic">Topic: Geography</div>
+                            <div class="quiz-question">What is the capital of Japan?</div>
+                        </div>
+                        <div class="quiz-card-back">
+                            <div class="quiz-topic">Topic: Geography</div>
+                            <div class="quiz-answer">Tokyo</div>
+                            <div class="quiz-mode"><span class="quiz-easy">Easy ⭐</span></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="quiz-card">
+                    <div class="quiz-card-inner">
+                        <div class="quiz-card-front">
+                            <div class="quiz-topic">Topic: Literature</div>
+                            <div class="quiz-question">Who wrote "Romeo and Juliet"?</div>
+                        </div>
+                        <div class="quiz-card-back">
+                            <div class="quiz-topic">Topic: Literature</div>
+                            <div class="quiz-answer">William Shakespeare</div>
+                            <div class="quiz-mode"><span class="quiz-easy">Easy ⭐</span></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Row 2 -->
+                <div class="quiz-card">
+                    <div class="quiz-card-inner">
+                        <div class="quiz-card-front">
+                            <div class="quiz-topic">Topic: Mathematics</div>
+                            <div class="quiz-question">Solve for x: 2x + 5 = 15</div>
+                        </div>
+                        <div class="quiz-card-back">
+                            <div class="quiz-topic">Topic: Mathematics</div>
+                            <div class="quiz-answer">x = 5</div>
+                            <div class="quiz-mode"><span class="quiz-medium">Medium ⭐⭐</span></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="quiz-card">
+                    <div class="quiz-card-inner">
+                        <div class="quiz-card-front">
+                            <div class="quiz-topic">Topic: Science</div>
+                            <div class="quiz-question">What is the powerhouse of the cell?</div>
+                        </div>
+                        <div class="quiz-card-back">
+                            <div class="quiz-topic">Topic: Science</div>
+                            <div class="quiz-answer">Mitochondria</div>
+                            <div class="quiz-mode"><span class="quiz-medium">Medium ⭐⭐</span></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="quiz-card">
+                    <div class="quiz-card-inner">
+                        <div class="quiz-card-front">
+                            <div class="quiz-topic">Topic: History</div>
+                            <div class="quiz-question">Who was the first President of the United States?</div>
+                        </div>
+                        <div class="quiz-card-back">
+                            <div class="quiz-topic">Topic: History</div>
+                            <div class="quiz-answer">George Washington</div>
+                            <div class="quiz-mode"><span class="quiz-medium">Medium ⭐⭐</span></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="quiz-card">
+                    <div class="quiz-card-inner">
+                        <div class="quiz-card-front">
+                            <div class="quiz-topic">Topic: Geography</div>
+                            <div class="quiz-question">Which river is the longest in the world?</div>
+                        </div>
+                        <div class="quiz-card-back">
+                            <div class="quiz-topic">Topic: Geography</div>
+                            <div class="quiz-answer">Nile River</div>
+                            <div class="quiz-mode"><span class="quiz-medium">Medium ⭐⭐</span></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="quiz-card">
+                    <div class="quiz-card-inner">
+                        <div class="quiz-card-front">
+                            <div class="quiz-topic">Topic: Literature</div>
+                            <div class="quiz-question">What is the name of the wizard in The Lord of the Rings?</div>
+                        </div>
+                        <div class="quiz-card-back">
+                            <div class="quiz-topic">Topic: Literature</div>
+                            <div class="quiz-answer">Gandalf</div>
+                            <div class="quiz-mode"><span class="quiz-medium">Medium ⭐⭐</span></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Row 3 -->
+                <div class="quiz-card">
+                    <div class="quiz-card-inner">
+                        <div class="quiz-card-front">
+                            <div class="quiz-topic">Topic: Mathematics</div>
+                            <div class="quiz-question">What is the derivative of x³?</div>
+                        </div>
+                        <div class="quiz-card-back">
+                            <div class="quiz-topic">Topic: Mathematics</div>
+                            <div class="quiz-answer">3x²</div>
+                            <div class="quiz-mode"><span class="quiz-hard">Hard ⭐⭐⭐</span></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="quiz-card">
+                    <div class="quiz-card-inner">
+                        <div class="quiz-card-front">
+                            <div class="quiz-topic">Topic: Science</div>
+                            <div class="quiz-question">What is the speed of light in a vacuum?</div>
+                        </div>
+                        <div class="quiz-card-back">
+                            <div class="quiz-topic">Topic: Science</div>
+                            <div class="quiz-answer">299,792,458 m/s</div>
+                            <div class="quiz-mode"><span class="quiz-hard">Hard ⭐⭐⭐</span></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="quiz-card">
+                    <div class="quiz-card-inner">
+                        <div class="quiz-card-front">
+                            <div class="quiz-topic">Topic: History</div>
+                            <div class="quiz-question">Who was the Egyptian queen known for her relationships with Roman leaders?</div>
+                        </div>
+                        <div class="quiz-card-back">
+                            <div class="quiz-topic">Topic: History</div>
+                            <div class="quiz-answer">Cleopatra</div>
+                            <div class="quiz-mode"><span class="quiz-hard">Hard ⭐⭐⭐</span></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="quiz-card">
+                    <div class="quiz-card-inner">
+                        <div class="quiz-card-front">
+                            <div class="quiz-topic">Topic: Geography</div>
+                            <div class="quiz-question">Which country has the most natural lakes?</div>
+                        </div>
+                        <div class="quiz-card-back">
+                            <div class="quiz-topic">Topic: Geography</div>
+                            <div class="quiz-answer">Canada</div>
+                            <div class="quiz-mode"><span class="quiz-hard">Hard ⭐⭐⭐</span></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="quiz-card">
+                    <div class="quiz-card-inner">
+                        <div class="quiz-card-front">
+                            <div class="quiz-topic">Topic: Literature</div>
+                            <div class="quiz-question">Who wrote "One Hundred Years of Solitude"?</div>
+                        </div>
+                        <div class="quiz-card-back">
+                            <div class="quiz-topic">Topic: Literature</div>
+                            <div class="quiz-answer">Gabriel García Márquez</div>
+                            <div class="quiz-mode"><span class="quiz-hard">Hard ⭐⭐⭐</span></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Row 4 -->
+                <div class="quiz-card">
+                    <div class="quiz-card-inner">
+                        <div class="quiz-card-front">
+                            <div class="quiz-topic">Topic: Programming</div>
+                            <div class="quiz-question">What does CSS stand for?</div>
+                        </div>
+                        <div class="quiz-card-back">
+                            <div class="quiz-topic">Topic: Programming</div>
+                            <div class="quiz-answer">Cascading Style Sheets</div>
+                            <div class="quiz-mode"><span class="quiz-easy">Easy ⭐</span></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="quiz-card">
+                    <div class="quiz-card-inner">
+                        <div class="quiz-card-front">
+                            <div class="quiz-topic">Topic: Programming</div>
+                            <div class="quiz-question">Which language is known as the backbone of web development?</div>
+                        </div>
+                        <div class="quiz-card-back">
+                            <div class="quiz-topic">Topic: Programming</div>
+                            <div class="quiz-answer">JavaScript</div>
+                            <div class="quiz-mode"><span class="quiz-medium">Medium ⭐⭐</span></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="quiz-card">
+                    <div class="quiz-card-inner">
+                        <div class="quiz-card-front">
+                            <div class="quiz-topic">Topic: Biology</div>
+                            <div class="quiz-question">How many chromosomes do humans have?</div>
+                        </div>
+                        <div class="quiz-card-back">
+                            <div class="quiz-topic">Topic: Biology</div>
+                            <div class="quiz-answer">46</div>
+                            <div class="quiz-mode"><span class="quiz-medium">Medium ⭐⭐</span></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="quiz-card">
+                    <div class="quiz-card-inner">
+                        <div class="quiz-card-front">
+                            <div class="quiz-topic">Topic: Physics</div>
+                            <div class="quiz-question">What is Newton's first law of motion?</div>
+                        </div>
+                        <div class="quiz-card-back">
+                            <div class="quiz-topic">Topic: Physics</div>
+                            <div class="quiz-answer">An object at rest stays at rest</div>
+                            <div class="quiz-mode"><span class="quiz-hard">Hard ⭐⭐⭐</span></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="quiz-card">
+                    <div class="quiz-card-inner">
+                        <div class="quiz-card-front">
+                            <div class="quiz-topic">Topic: Chemistry</div>
+                            <div class="quiz-question">What is the atomic number of carbon?</div>
+                        </div>
+                        <div class="quiz-card-back">
+                            <div class="quiz-topic">Topic: Chemistry</div>
+                            <div class="quiz-answer">6</div>
+                            <div class="quiz-mode"><span class="quiz-medium">Medium ⭐⭐</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="quiz-instructions">
+                <div class="quiz-instructions-title">How to Use These Flashcards</div>
+                <p class="quiz-instructions-text">Hover over any card to flip it and reveal the answer. The difficulty level is indicated by stars: ⭐ for Easy, ⭐⭐ for Medium, and ⭐⭐⭐ for Hard questions.</p>
+            </div>
+        </div>
+    </section>
+
+
+<!-- CALENDAR SECTION -->
+<section class="calendar-section" id="calendar">
+    <div class="calendar-container">
+        <div class="calendar-header">
+            <h2 class="calendar-section-title"><i class="fas fa-calendar-alt"></i> Calendar & To-dos</h2>
+            <p class="calendar-section-subtitle">Manage your schedule and tasks</p>
+        </div>
+        
+        <div class="calendar-main-container">
+            <div class="calendar-widget">
+                <div class="calendar-header-nav">
+                    <button class="calendar-nav-btn" onclick="navigateMonth(-1)">❮</button>
+                    <h3 class="calendar-title" id="calendar-title"></h3>
+                    <button class="calendar-nav-btn" onclick="navigateMonth(1)">❯</button>
+                </div>
+                <div class="weekdays">
+                    <div class="weekday">Sun</div>
+                    <div class="weekday">Mon</div>
+                    <div class="weekday">Tue</div>
+                    <div class="weekday">Wed</div>
+                    <div class="weekday">Thu</div>
+                    <div class="weekday">Fri</div>
+                    <div class="weekday">Sat</div>
+                </div>
+                <div class="calendar-grid" id="calendar-grid"></div>
+            </div>
+
+            <div class="todo-sidebar">
+                <div class="todo-header">
+                    <div class="todo-date" id="selected-date"></div>
+                    <button class="add-btn" onclick="openTodoModal()">➕</button>
+                </div>
+                <div class="todo-list" id="todo-list"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- TIMETABLE SECTION -->
+<section class="timetable-section" id="timetable">
+    <div class="timetable-container">
+        <div class="timetable-header">
+            <h2 class="timetable-section-title"><i class="fas fa-clock"></i> Weekly Timetable</h2>
+            <p class="timetable-section-subtitle">Organize your subjects and class timings</p>
+        </div>
+        <div class="timetable-grid" id="timetable-grid"></div>
+    </div>
+</section>
+
+<!-- NOTES SECTION -->
+<section class="notes-section" id="notes">
+    <h2 class="notes-title"><i class="fas fa-sticky-note"></i> Notes</h2>
+    <p class="notes-subtitle">Organize your thoughts and ideas</p>
+    
+    <div class="notes-container">
+        <div class="notes-header">
+            <div class="notes-search">
+                <i class="fas fa-search notes-search-icon"></i>
+                <input type="text" class="notes-search-input" id="notes-search-input" placeholder="Search notes...">
+            </div>
+            <button class="notes-add-btn" id="notes-add-btn">
+                <i class="fas fa-plus"></i> Add New Note
+            </button>
+        </div>
+        
+        <div class="notes-grid" id="notes-grid">
+            <!-- Notes will be added here by JavaScript -->
+        </div>
+    </div>
+</section>
+
+<!-- Add/Edit Note Modal -->
+<div class="notes-modal" id="notes-modal">
+    <div class="notes-modal-content">
+        <div class="notes-modal-header">
+            <h3 class="notes-modal-title" id="notes-modal-title">Add New Note</h3>
+            <button class="notes-modal-close" id="notes-modal-close">&times;</button>
+        </div>
+        <form id="notes-form">
+            <input type="hidden" id="note-id">
+            <div class="notes-form-group">
+                <label class="notes-form-label" for="note-title">Title</label>
+                <input type="text" class="notes-form-input" id="note-title" placeholder="Enter note title" required>
+            </div>
+            <div class="notes-form-group">
+                <label class="notes-form-label" for="note-content">Content</label>
+                <textarea class="notes-form-textarea" id="note-content" placeholder="Write your note here..." required></textarea>
+            </div>
+            <div class="notes-form-actions">
+                <button type="button" class="notes-form-cancel" id="notes-form-cancel">Cancel</button>
+                <button type="submit" class="notes-form-submit">Save Note</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Todo Modal -->
+<div id="todo-modal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">Add To-do</div>
+        <div class="form-group">
+            <input type="text" id="todo-input" class="form-input" placeholder="Enter your to-do item..." />
+        </div>
+        <div class="modal-actions">
+            <button class="btn btn-cancel" onclick="closeTodoModal()">Cancel</button>
+            <button class="btn btn-primary" onclick="addTodo()">Add To-do</button>
+        </div>
+    </div>
+</div>
+
+<!-- Subject Modal -->
+<div id="subject-modal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">Add Subject for <span id="modal-day"></span></div>
+        <div class="form-group">
+            <label>Subject Name</label>
+            <input type="text" id="subject-name" class="form-input" placeholder="e.g., Mathematics" />
+        </div>
+        <div class="time-inputs">
+            <div class="form-group">
+                <label>Start Time</label>
+                <input type="time" id="start-time" class="form-input" />
+            </div>
+            <div class="form-group">
+                <label>End Time</label>
+                <input type="time" id="end-time" class="form-input" />
+            </div>
+        </div>
+        <div class="modal-actions">
+            <button class="btn btn-cancel" onclick="closeSubjectModal()">Cancel</button>
+            <button class="btn btn-success" onclick="addSubject()">Add Subject</button>
+        </div>
+    </div>
+</div>
+
+
+<script src="script.js"></script>
+</body>
+</html>
